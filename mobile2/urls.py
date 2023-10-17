@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import SalaViewSet, ParticipanteViewSet
+from core.views import SalaViewSet, ParticipanteViewSet, assign_attendance
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('participante/', ParticipanteViewSet.create_participantes, name='create_participantes'),
+    path('presenca/', assign_attendance, name='assign_attendance'),
 ]
