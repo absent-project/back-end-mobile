@@ -9,6 +9,7 @@ class SalaSerializer(serializers.ModelSerializer):
 class ParticipanteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Participante
-        fields = ['id', 'nome', 'codigo', 'sala']
+        fields = '__all__'
+
 
     

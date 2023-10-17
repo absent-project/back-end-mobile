@@ -21,9 +21,9 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('sala', SalaViewSet)
-router.register('participante', ParticipanteViewSet.post)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('participante/', ParticipanteViewSet.create_participantes, name='create_participantes'),
 ]
