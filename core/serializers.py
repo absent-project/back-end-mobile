@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Sala, Participante
+from .models import Sala, Participante, Presenca
 
 class SalaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,5 +11,7 @@ class ParticipanteSerializer(serializers.ModelSerializer):
         model = Participante
         fields = '__all__'
 
-
-    
+class PresencaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Presenca
+        fields = '__all__'  # This includes all fields from the Presenca model

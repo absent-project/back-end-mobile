@@ -2,9 +2,21 @@ from .models import Participante, Sala, Presenca
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import ParticipanteSerializer, SalaSerializer
+from .serializers import ParticipanteSerializer, SalaSerializer, PresencaSerializer
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime  # Import the datetime module
+
+class SalaViewSet(viewsets.ModelViewSet):
+    queryset = Sala.objects.all()
+    serializer_class = SalaSerializer
+
+class PresencaViewSet(viewsets.ModelViewSet):
+    queryset = Presenca.objects.all()
+    serializer_class = PresencaSerializer
+
+class ParticipanteViewSet(viewsets.ModelViewSet):
+    queryset = Participante.objects.all()
+    serializer_class = ParticipanteSerializer
 
 @api_view(['POST'])
 def assign_attendance(request):
